@@ -1,0 +1,107 @@
+body{
+    overflow-x: hidden;
+}
+
+.homeContainer{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: end;
+    background: rgb(139, 138, 138);
+    .homeText{
+    padding: 6rem;
+    color: #fff;
+    /* margin: 3rem 4rem; */
+    h2{
+        font-size: 4rem;
+        text-transform: uppercase;
+        line-height: 1.05;
+        font-weight: 300;
+        margin-bottom: 20px;
+        span{
+            font-weight: 600;
+        }
+    }
+    .desc{
+color: #ebebebe0;
+margin-block:25px ;
+}
+.priceP{
+        margin-block:25px ;
+font-weight: 700;
+    }
+    button{
+        border-radius: 20px;
+        margin-right: 20px;
+    }
+    .secondBtn{
+        background-color: white;
+        color: #333;
+    }
+  }}
+
+.aboutContainer{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content:end;
+    align-items: center;
+
+    .contentBox{
+background-color: #333;
+        padding: 1.5rem;
+        margin-right: 7rem;
+        border-radius: 20px;
+        width: 375px;
+        position: relative;
+        h3{
+            font-size: 2.1rem; 
+            line-height: 1;
+            margin-bottom:10px;
+            font-weight: 600;
+        }  
+        p{
+            margin-block: 20px;
+            font-size: 1rem;
+            font-weight: 400;
+            text-align: justify;
+        }
+        button{
+            position: absolute;
+            bottom:-20px;
+            border-radius: 50px;
+        }
+    }
+
+}
+
+.customContainer{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    background-color: #333;
+    .paintBox{
+        margin-top: 2rem;
+        text-align: center;
+        z-index: 5;
+        button{
+            box-shadow: #8c8c8c 0px 3px 5px 0px;
+            // border: 1px solid #fff;
+            border-radius: 50%;
+            height: 30px;
+            width: 30px;
+            padding: 0;
+            margin: 20px;
+        }
+        .btn1{
+            background-color: #fff;
+        }
+        .btn2{
+            background-color: #0000ff;
+        }
+        .btn3{
+            background-color: #ff0000;
+        }
+    }
+}
