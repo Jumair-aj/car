@@ -11,13 +11,14 @@ import Custom from './Custom'
 
 function App() {
 
-  return (
-    <div className="container">
+  return (<>    <div className="container">
       <Home/>
-     <Car/>
      <About/>
      <Custom/>
     </div>
+     <Car/>
+     </>
+
   )
 }
 
