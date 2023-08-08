@@ -8,25 +8,6 @@
   width: 100vw;
   position: fixed;
   top: 0;
+  /* z-index: -15; */
 }
 
-.inputDiv{
-  position: absolute;
-  top:50px;
-  left:50%;
-  transform: translate(-50%, -50%);
-    display: flex;
-  flex-direction: column;
-}
-
-.inputDiv label{
-  margin-bottom: 10px;
-}
-.inputDiv span{
-  margin-left: 10px;
-  cursor: pointer;
-}
-.inputDiv span:hover{
-text-decoration: underline;  
-color: rgb(87, 87, 232);
-}

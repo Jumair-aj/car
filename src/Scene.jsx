@@ -7,21 +7,47 @@ Source: https://sketchfab.com/3d-models/mclaren-f1-1993-by-alexka-294df724d96241
 Title: McLaren F1 1993 By Alex.Ka.🤍🖤
 */
 
-import React, { useLayoutEffect, useRef } from 'react'
+import React, { useEffect, useLayoutEffect, useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { useThree } from '@react-three/fiber'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/all'
 
 export function Model(props) {
   const { nodes, materials } = useGLTF('/scene.gltf')
-
+gsap.registerPlugin(ScrollTrigger)
   let camera = useThree(state => state.camera)
   let scene = useThree(state => state.scene)
   console.log(scene)
   useLayoutEffect(() => {
-    scene.rotation.set(0.3,0,0)
-    camera.position.set(0,0,6)
-
+   
+    // camera.position.set(0,0,5)
+    materials.floor.opacity = 0
+    gsap.to(camera.position,{x:0,y:0,z:5})
+    setTimeout(() => {
+      
+      gsap.fromTo(scene.rotation,{x:1},{x:0.5,duration:1,ease:'power1 .inOut'})
+    }, 300);
+    let t1= gsap.timeline({
+      scrollTrigger:{
+        trigger:'#modelCar',
+        start: 'top top',
+        endTrigger:'#endPart',
+        end: 'bottom bottom',
+        // markers:true,
+  scrub:true
+      }
+    })
+     
+    t1.to(scene.position,{x:-2.5,y:-1},'id')
+    .to(scene.rotation,{x:0,y:1.5},'id')
+    t1.to(scene.position,{x:0},'id1')
+    .to(scene.rotation,{x:0,y:-1.5},'id1')
+    
+    // .to(scene.rotation,{x:2.5})
   }, [])
+ 
+  
   return (
     <group {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]} scale={1.08}>
