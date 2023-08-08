@@ -8,12 +8,17 @@ import { useGLTF } from '@react-three/drei'
 import Home from './Home'
 import About from './About'
 import Custom from './Custom'
+import Background from './Background'
 
 function App() {
+const [carLoading,setCarLoading] = useState(false)
 
+setTimeout(() => {
+  setCarLoading(true)
+}, 4000);
   return (
     <div className="container">
-      <Home/>
+      {carLoading ? <Home/> : <Background/>}
      <Car/>
      <About/>
      <Custom/>

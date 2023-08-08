@@ -2,12 +2,29 @@ body{
     overflow-x: hidden;
 }
 
+.backgroundDiv{
+ background-color: #000;   
+//  width: 100vw;
+ height: 100vh;
+}
+
+@keyframes bgChanger {
+    from {
+        background: #000;
+    }
+    to{
+        background: rgb(139, 138, 138);
+
+    }
+}
+
 .homeContainer{
     width: 100vw;
     height: 100vh;
     display: flex;
     align-items: end;
     background: rgb(139, 138, 138);
+    animation: bgChanger  1s ;
     .homeText{
     padding: 6rem;
     color: #fff;

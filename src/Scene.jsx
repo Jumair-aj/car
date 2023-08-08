@@ -12,6 +12,7 @@ import { useGLTF } from '@react-three/drei'
 import { useThree } from '@react-three/fiber'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/all'
+import { MeshPhongMaterial } from 'three'
 
 export function Model(props) {
   const { nodes, materials } = useGLTF('/scene.gltf')
@@ -19,15 +20,20 @@ gsap.registerPlugin(ScrollTrigger)
   let camera = useThree(state => state.camera)
   let scene = useThree(state => state.scene)
   console.log(scene)
+  console.log(camera)
   useLayoutEffect(() => {
    
     // camera.position.set(0,0,5)
     materials.floor.opacity = 0
-    gsap.to(camera.position,{x:0,y:0,z:5})
-    setTimeout(() => {
+    // gsap.to(camera.position,{x:0,y:0,z:5})
+    // setTimeout(() => {
       
-      gsap.fromTo(scene.rotation,{x:1},{x:0.5,duration:1,ease:'power1 .inOut'})
-    }, 300);
+      gsap.fromTo(scene.position,{z:1.5},{z:0,duration:1,ease:'power1 .inOut'},'id3')
+      gsap.fromTo(scene.position,{x:0,y:0},{x:2,y:-0.3,duration:1,ease:'power1 .inOut'},'id1')
+      gsap.fromTo(scene.rotation,{x:0.2,y:0},{x:0.2,y:-0.2,duration:1,ease:'power2 .inOut'},'id1')
+      gsap.to(camera.position,{x:0.1,duration:1,ease:'power1 .inOut'},'id1')
+      // gsap.to(camera.rotation,{x:0,y:0},{x:1,y:2,duration:1,ease:'power1 .inOut'})
+    // }, 2000);
     let t1= gsap.timeline({
       scrollTrigger:{
         trigger:'#modelCar',
@@ -109,6 +115,9 @@ gsap.registerPlugin(ScrollTrigger)
         <mesh geometry={nodes.Object_57.geometry} material={materials.windo_F} />
         <mesh geometry={nodes.Object_58.geometry} material={materials.windo_R} />
         <mesh geometry={nodes.Object_59.geometry} material={materials.windo_S} />
+         <mesh>
+              <MeshPhongMaterial/>
+            </mesh>
       </group>
     </group>
   )
